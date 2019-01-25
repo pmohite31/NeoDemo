@@ -1,6 +1,5 @@
 package manager;
 
-import org.openqa.selenium.WebElement;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import pageObjects.LoginScreen;

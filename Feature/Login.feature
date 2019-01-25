@@ -3,8 +3,12 @@
 Feature: Login
 
   @Smoke
-  Scenario: Login Successfully
-    Given I launch app
-    When I enter correct credentials
-    Then I should be on ProductSummary Screen
-    Then I close the app
+  Scenario Outline: Login Successfully
+    Given User is on login screen
+    When User enters "<username>" and "<passwordd>"
+    Then User should be on ProductSummary Screen
+    And User closes the app
+  Examples:
+    | username   | passwordd |
+    | sara | password |
+    | testuser_2 | Test@153 |
