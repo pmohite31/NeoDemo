@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.junit.runner.RunWith;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeTest;
 
 import com.cucumber.listener.Reporter;
 
@@ -23,9 +24,6 @@ public class TestRunner {
 	
 	@AfterClass
 	 public static void writeExtentReport() {
-	 Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath()));
-	
-    
-	 }	
+	 Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath())); }	
 	
 }

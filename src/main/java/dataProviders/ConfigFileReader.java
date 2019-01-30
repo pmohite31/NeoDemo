@@ -13,6 +13,7 @@ public class ConfigFileReader {
 	private Properties properties;
 	private final String propertyFilePath= "Config//ConfigProperty.properties";
 
+	
 
 	public ConfigFileReader(){
 		BufferedReader reader;
@@ -31,10 +32,11 @@ public class ConfigFileReader {
 		} 
 	}
 
+
 	public String getPlatformName(){
 		//String platformName = properties.getProperty("platform");
 		String platformName = System.getProperty("platform");
-		System.out.println(platformName);
+		//System.out.println("Platform Name:" + platformName);
 		if(platformName!= null) return platformName;
 		else throw new RuntimeException("platformName not specified."); 
 	}
@@ -42,19 +44,21 @@ public class ConfigFileReader {
 
 	public String getAppiumUrl() {
 		String url = properties.getProperty("appiumURL");
-		System.out.println(url);
+		//System.out.println("Appium server URL:" +url);
 		if (url!= null) {
 			return url;
 		}
 		else {
+			//System.out.println("Appium server URL: http://127.0.0.1:4723/wd/hub");
 			return "http://127.0.0.1:4723/wd/hub";
+			
 		}
 	}
 
 	public String getDeviceName(){
 		// String devicename = properties.getProperty("deviceName");
 		String devicename = System.getProperty("deviceName");
-		System.out.println(devicename);
+		//System.out.println("Device Name:" +devicename);
 		if(devicename!= null) return devicename;
 		else throw new RuntimeException("platformVersion not specified."); 
 	}
@@ -63,7 +67,7 @@ public class ConfigFileReader {
 	public String getPlatformVersion(){
 		//String platformVrsn = properties.getProperty("platformVersion");
 		String platformVrsn = System.getProperty("platformVersion");
-		System.out.println(platformVrsn);
+		//System.out.println("platform version:" +platformVrsn);
 		if(platformVrsn!= null) return platformVrsn;
 		else throw new RuntimeException("platformVersion not specified."); 
 	}
@@ -72,7 +76,7 @@ public class ConfigFileReader {
 	public String getDeviceId(){
 		// String deviceID = properties.getProperty("UDID");
 		String deviceID = System.getProperty("UDID");
-		System.out.println(deviceID);
+		//System.out.println("DeviceID/UDID:" +deviceID);
 		if(deviceID!= null) return deviceID;
 		else throw new RuntimeException("deviceID/UDID not specified."); 
 	}
@@ -80,7 +84,7 @@ public class ConfigFileReader {
 	public String getAutomationName(){
 		// String automationType = properties.getProperty("automationName");
 		String automationType = System.getProperty("automationName");
-		System.out.println(automationType);
+		//System.out.println("Automation Name:" +automationType);
 		if(automationType!= null) return automationType;
 		else throw new RuntimeException("automationName not specified."); 
 	}
@@ -89,7 +93,7 @@ public class ConfigFileReader {
 	public String getAppPath(){
 		//String app = properties.getProperty("appPath");
 		String app = System.getProperty("appPath");
-		System.out.println(app);
+		//System.out.println("App IPA/APK Path:" +app);
 		if(app!= null) return app;
 		else throw new RuntimeException("Either App path is incorrect or App is not available on given path :" + app); 
 	}

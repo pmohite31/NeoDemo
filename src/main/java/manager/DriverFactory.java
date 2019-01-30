@@ -49,7 +49,22 @@ public class DriverFactory {
 			driver = new AndroidDriver<MobileElement>(
 					new URL(FileReaderManager.getInstance().getConfigReader().getAppiumUrl()), capabilities);
 			FileReaderManager.getInstance().getConfigReader().getImplicitlyWait();
+			
+			
+			System.out.println ("platformName : "+
+					FileReaderManager.getInstance().getConfigReader().getPlatformName());
+			System.out.println("deviceName : " + FileReaderManager.getInstance().getConfigReader().getDeviceName());
+			System.out.println("appPath : " + FileReaderManager.getInstance().getConfigReader().getAppPath());
+			System.out.println("platformVersion : " +
+					FileReaderManager.getInstance().getConfigReader().getPlatformVersion());
+			System.out.println("automationName : " +
+					FileReaderManager.getInstance().getConfigReader().getAutomationName());
+			System.out.println("fullReset : " + FileReaderManager.getInstance().getConfigReader().getFullReset());
+			System.out.println("noReset : " + FileReaderManager.getInstance().getConfigReader().getNoReset());
+			
 			break;
+			
+			
 
 		case "IOS":
 
@@ -67,6 +82,20 @@ public class DriverFactory {
 			driver = new IOSDriver<MobileElement>(
 					new URL(FileReaderManager.getInstance().getConfigReader().getAppiumUrl()), capabilities);
 			FileReaderManager.getInstance().getConfigReader().getImplicitlyWait();
+			
+			System.out.println ("platformName : "+
+					FileReaderManager.getInstance().getConfigReader().getPlatformName());
+			System.out.println("deviceName : " + FileReaderManager.getInstance().getConfigReader().getDeviceName());
+			System.out.println("appPath : " + FileReaderManager.getInstance().getConfigReader().getAppPath());
+			System.out.println("platformVersion : " +
+					FileReaderManager.getInstance().getConfigReader().getPlatformVersion());
+			System.out.println("automationName : " +
+					FileReaderManager.getInstance().getConfigReader().getAutomationName());
+			System.out.println("UDID: " +
+					FileReaderManager.getInstance().getConfigReader().getDeviceId());
+			System.out.println("fullReset : " + FileReaderManager.getInstance().getConfigReader().getFullReset());
+			System.out.println("noReset : " + FileReaderManager.getInstance().getConfigReader().getNoReset());
+			
 			break;
 
 		}

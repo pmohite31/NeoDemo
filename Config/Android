@@ -1,0 +1,6 @@
+#Wed Jan 30 12:15:41 IST 2019
+platform=Android
+deviceName=emulator-5554
+appPath=/Users/prashantmohite/Prashant/APK/Android.apk
+platformVersion=9
+automationName=Espresso

@@ -24,7 +24,6 @@ public class ProductSummarySteps {
 	 
 	 @Then("^User closes the app$")
 		public void closeApp() throws Throwable {
-		    // Write code here that turns the phrase above into concrete actions
 		 testContext.getDriverFactory().closeDriver();
 		}
 		
