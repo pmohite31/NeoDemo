@@ -18,7 +18,8 @@ public class TestContext {
 		util.readExcelFile("/Resources/DataProvider.xlsx");
 		util.writeToPropertiesFile();
 		driverFactory = new DriverFactory();
-		pageObjectManger = new PageObjectManger(driverFactory.getDriver());	  	  	  
+        pageObjectManger = new PageObjectManger(driverFactory.getDriver());
+	
 	}		 	
 
 	public DriverFactory getDriverFactory() {

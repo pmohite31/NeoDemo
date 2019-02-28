@@ -21,9 +21,12 @@ import manager.FileReaderManager;
  )
 
 public class TestRunner {
+
 	
 	@AfterClass
 	 public static void writeExtentReport() {
-	 Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath())); }	
+	 Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath())); }
 	
+	
+
 }

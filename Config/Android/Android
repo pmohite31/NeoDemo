@@ -1,0 +1,11 @@
+#Thu Feb 28 10:59:38 IST 2019
+automationName=Espresso
+platform=Android
+platformVersion=9
+fullReset=FALSE
+appPath=/Users/prashantmohite/Prashant/APK/Android.apk
+deviceName=emulator-5554
+RunMode=Y
+appiumURL=http\://127.0.0.1\:4723/wd/hub
+noReset=FALSE
+=

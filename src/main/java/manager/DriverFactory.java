@@ -14,9 +14,12 @@ public class DriverFactory {
 
 	private AppiumDriver<MobileElement> driver;
 	private String os;
+	String port;
+    String udid;
 
 	public DriverFactory() {
 		os = FileReaderManager.getInstance().getConfigReader().getPlatformName();
+		
 	}
 
 	public AppiumDriver<MobileElement> getDriver() {
@@ -42,12 +45,14 @@ public class DriverFactory {
 			capabilities.setCapability("app", FileReaderManager.getInstance().getConfigReader().getAppPath());
 			capabilities.setCapability("platformVersion",
 					FileReaderManager.getInstance().getConfigReader().getPlatformVersion());
-			capabilities.setCapability("automationName",
-					FileReaderManager.getInstance().getConfigReader().getAutomationName());
+//			capabilities.setCapability("automationName",
+//					FileReaderManager.getInstance().getConfigReader().getAutomationName());
 			capabilities.setCapability("fullReset", FileReaderManager.getInstance().getConfigReader().getFullReset());
 			capabilities.setCapability("noReset", FileReaderManager.getInstance().getConfigReader().getNoReset());
-			driver = new AndroidDriver<MobileElement>(
-					new URL(FileReaderManager.getInstance().getConfigReader().getAppiumUrl()), capabilities);
+			
+			
+			capabilities.setCapability("autoGrantPermissions", true);
+        	driver = new AndroidDriver<MobileElement>(new URL(FileReaderManager.getInstance().getConfigReader().getAppiumUrl()), capabilities);
 			FileReaderManager.getInstance().getConfigReader().getImplicitlyWait();
 			
 			
@@ -57,8 +62,8 @@ public class DriverFactory {
 			System.out.println("appPath : " + FileReaderManager.getInstance().getConfigReader().getAppPath());
 			System.out.println("platformVersion : " +
 					FileReaderManager.getInstance().getConfigReader().getPlatformVersion());
-			System.out.println("automationName : " +
-					FileReaderManager.getInstance().getConfigReader().getAutomationName());
+//			System.out.println("automationName : " +
+//					FileReaderManager.getInstance().getConfigReader().getAutomationName());
 			System.out.println("fullReset : " + FileReaderManager.getInstance().getConfigReader().getFullReset());
 			System.out.println("noReset : " + FileReaderManager.getInstance().getConfigReader().getNoReset());
 			
@@ -77,6 +82,7 @@ public class DriverFactory {
 			capabilities.setCapability("automationName",
 					FileReaderManager.getInstance().getConfigReader().getAutomationName());
 			capabilities.setCapability("UDID", FileReaderManager.getInstance().getConfigReader().getDeviceId());
+			capabilities.setCapability("sendKeyStrategy", "setValue");
 			capabilities.setCapability("fullReset", FileReaderManager.getInstance().getConfigReader().getFullReset());
 			capabilities.setCapability("noReset", FileReaderManager.getInstance().getConfigReader().getNoReset());
 			driver = new IOSDriver<MobileElement>(
@@ -107,5 +113,6 @@ public class DriverFactory {
 	public void closeDriver() {
 		driver.quit();
 	}
+
 
 }

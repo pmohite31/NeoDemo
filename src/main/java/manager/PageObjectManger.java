@@ -2,25 +2,33 @@ package manager;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import pageObjects.EmailAddressScreen;
+import pageObjects.LaunchScreen;
 import pageObjects.LoginScreen;
-import pageObjects.ProductSummary;
+
 
 public class PageObjectManger {
 
 	public AppiumDriver<MobileElement> driver;
-	public LoginScreen loginScreen;
-	public ProductSummary productSummaryScreen;
+	public LaunchScreen launchScreen;
+	public EmailAddressScreen emailAddressScreen;
 	
-	public  PageObjectManger(AppiumDriver<MobileElement> driver) {
+	
+	
+	public PageObjectManger(AppiumDriver<MobileElement> driver) {
 		this.driver = driver;
 	}
 	
 	
-	public LoginScreen getLoginScreen() {
-		return (loginScreen == null) ? loginScreen = new LoginScreen(driver) : loginScreen;
+	public LaunchScreen getLaunchScreen() {
+		return (launchScreen == null) ? launchScreen = new LaunchScreen(driver) : launchScreen;
 	}
 	
-	public ProductSummary getProductSummaryScreen() {
-		return (productSummaryScreen == null) ? productSummaryScreen = new ProductSummary(driver) : productSummaryScreen;
+	public EmailAddressScreen getEmailAddressScreen() {
+		return (emailAddressScreen == null) ? emailAddressScreen = new EmailAddressScreen(driver) : emailAddressScreen;
 	}
+	
+	
+
+	
 }

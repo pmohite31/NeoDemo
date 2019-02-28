@@ -21,7 +21,14 @@ public class ExcelUtility {
         File file = new File(System.getProperty("user.dir") + dataProvider);
         Workbook workbook = WorkbookFactory.create(file);
         workbook.getNumberOfSheets();
-        String[] sheetList = new String[]{"Sheet1"};
+        String[] sheetList= null;
+        
+        if (System.getProperty("platform").equalsIgnoreCase("ios"))	{
+          sheetList = new String[]{"ios"};}
+        
+        else if (System.getProperty("platform").equalsIgnoreCase("android"))	{
+         sheetList = new String[]{"android"};}
+        
         Sheet sheet;
         Iterator<Row> rowIterator;
         DataFormatter dataFormatter = new DataFormatter();
@@ -34,7 +41,7 @@ public class ExcelUtility {
 
         int temp = 0;
 
-        for (int i = 0; i < sheetList.length; i++) {
+		for (int i = 0; i < sheetList.length; i++) {
             sheet = workbook.getSheet(sheetList[i]);
             rowIterator = sheet.rowIterator();
             while (rowIterator.hasNext()) {
@@ -92,34 +99,39 @@ public class ExcelUtility {
 
             System.out.println(inputData);
         }
+        
+        
+        
+        
     }
 
     public void writeToPropertiesFile() throws IOException {
 
         // Creating a new Properties object
         Properties props = new Properties();
-        String dir= "/Config/";
+        String dir= " ";
+        
+        if (System.getProperty("platform").equalsIgnoreCase("ios"))	{
+            dir = "/Config/iOS/" ;}
+          
+          else if (System.getProperty("platform").equalsIgnoreCase("android"))	{
+        	  dir = "/Config/Android/" ;} 
+        
         // Creating a File object which will point to location of
         // propertiesData file
         for (int i = 1; i < inputData.length; i++) {
-            File propertiesFile = new File(System.getProperty("user.dir")+dir+inputData[i][0]);
+        	System.out.println(inputData[i][1]);
+        	if (inputData[i][0].equalsIgnoreCase("Y")) {
+            File propertiesFile = new File(System.getProperty("user.dir")+dir+inputData[i][2]);
             FileOutputStream xlsFos = new FileOutputStream(propertiesFile);
             for (int j = 0; j < inputData[0].length; j++) {
 
                 props.setProperty(inputData[0][j], inputData[i][j]);
 
-
-                // create a FileOutputStream by passing above propertiesData file
-
-
-                // Taking hashMaps keys by first converting it to Set and than
-                // taking iterator over it.
-
-
-                // looping over iterator propertiesData
-
             }
-            props.store(xlsFos, null);
+           
+            { props.store(xlsFos, null);}
+        	}
         }
     }
 }

@@ -32,6 +32,7 @@ public class SeleniumUtility {
 
 	public void enterTextInTextField(MobileElement ele, String text) {
 		tapOnElement(ele);
+		ele.clear();
 		ele.sendKeys(text);
 	}
 
